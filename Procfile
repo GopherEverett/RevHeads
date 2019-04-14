@@ -1,0 +1,1 @@
+web: gunicorn revheads_project.wsgi --log-file -
