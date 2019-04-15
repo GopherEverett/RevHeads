@@ -14,7 +14,7 @@ class Car(models.Model):
     model = models.CharField(max_length=255)
     year = models.CharField(max_length=10)
     photo_url = models.CharField(max_length=255)
-    votes = models.IntegerField
+    votes = models.IntegerField(default=0)
     builder = models.ForeignKey(Builder, on_delete=models.CASCADE, related_name='cars')
 
     def __str__(self):
@@ -22,8 +22,8 @@ class Car(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
-    date_begin = models.DateField
-    date_end = models.DateField
+    date_begin = models.CharField(max_length=20, blank=True)
+    date_end = models.CharField(max_length=20, blank=True)
     details = models.TextField(max_length=500)
     photo_url = models.CharField(max_length=255)
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='projects')
