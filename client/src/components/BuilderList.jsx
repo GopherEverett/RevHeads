@@ -43,9 +43,13 @@ export default class extends Component {
                 {this.state.builders.map(builder => (
                     <div key={builder.id}>
                         <Link to={`/builder/${builder.id}`} >{builder.name}</Link>
+                        <p>Cars: {builder.cars.length}</p>
                     </div>
                 ))}
-                { this.state.isAddFormDisp ? <AddBuilderForm /> : <Button color="success" onClick={this.toggleAddForm}>+ Builder</Button>  }
+                { this.state.isAddFormDisp ? 
+                <AddBuilderForm toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilders}/> 
+                : 
+                <Button color="success" onClick={this.toggleAddForm}>+ Builder</Button>  }
             </div>
         )
     }
