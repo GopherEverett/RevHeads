@@ -69,7 +69,7 @@ export default class Builder extends Component {
                     </div>
                 ))}
                 { this.state.isAddFormDisp ? 
-                <AddCarForm toggleAddForm={this.toggleAddForm} />
+                <AddCarForm builderId={this.state.builder.id} toggleAddForm={this.toggleAddForm} />
                 :
                 <Button color="success" onClick={this.toggleAddForm}>+Car</Button> }
             </div>

@@ -5,7 +5,7 @@ import axios from 'axios'
 export default class AddBuilderForm extends React.Component {
 
 state = {
-    newBuilder:{
+    newBuilder: {
         name: '',
         location: '',
         photo_url: ''

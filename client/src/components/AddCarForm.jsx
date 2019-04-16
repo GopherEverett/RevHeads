@@ -5,7 +5,20 @@ import axios from 'axios'
 export default class AddCarForm extends Component {
 
 state = {
-  
+    newCar:{
+        name: '',
+        make: '',
+        model: '',
+        year: '',
+        photo_url: '',
+        builder: this.props.builderId
+    }
+}
+
+handleChange = (evt) => {
+    const copyNewCar = { ...this.state.newCar }
+    copyNewCar[evt.target.name] = evt.target.value
+    this.setState({ newCar: copyNewCar })
 }
 
     render() {
