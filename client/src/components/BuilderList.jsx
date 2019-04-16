@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import AddBuilderForm from './AddBuilderForm'
+import { Button } from 'reactstrap'
 
 export default class extends Component {
 
     state = {
         error: '',
-        builders: []
+        builders: [],
+        isAddFormDisp: false
+    }
+
+    toggleAddForm = () => {
+        this.setState((state) => {
+            return ({ isAddFormDisp: !state.isAddFormDisp })
+        })
     }
 
     componentDidMount() {
@@ -36,6 +45,7 @@ export default class extends Component {
                         <Link to={`/builder/${builder.id}`} >{builder.name}</Link>
                     </div>
                 ))}
+                { this.state.isAddFormDisp ? <AddBuilderForm /> : <Button color="success" onClick={this.toggleAddForm}>+ Builder</Button>  }
             </div>
         )
     }
