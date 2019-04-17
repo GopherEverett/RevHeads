@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
-import { Button } from 'reactstrap'
+import { Button, Card, CardImg, CardText, CardTitle, CardBody } from 'reactstrap'
 import AddProjectForm from './AddProjectForm'
 
 export default class Car extends Component {
@@ -83,12 +83,16 @@ export default class Car extends Component {
         }
         return (
             <div>
-                <img src={this.state.car.photo_url} alt="" />
-                <h1>Name: {this.state.car.name}</h1>
-                <h2>Make: {this.state.car.make}</h2>
-                <h2>Model: {this.state.car.model}</h2>
-                <h2>Year: {this.state.car.year}</h2>
-                <p>Votes: {this.state.car.votes}</p>
+                <Card>
+                    <CardBody>
+                        <CardImg top width="50%" src={this.state.car.photo_url} alt="" />
+                        <CardTitle tag="h2">Name: {this.state.car.name}</CardTitle>
+                        <CardText tag="h3">Make: {this.state.car.make}</CardText>
+                        <CardText tag="h3">Model: {this.state.car.model}</CardText>
+                        <CardText tag="h3">Year: {this.state.car.year}</CardText>
+                        <CardText tag="h3">Votes: {this.state.car.votes}</CardText>
+                    </CardBody>
+                </Card>
                 <Button onClick={this.handleVoteChangeUp}>⬆︎ vote</Button>
                 <Button onClick={this.handleVoteChangeDown}>⬇︎ vote</Button>
                 <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.car.name}`}</Button>

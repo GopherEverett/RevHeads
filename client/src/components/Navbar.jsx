@@ -20,22 +20,22 @@ export default class Bar extends React.Component {
     }
     render() {
         return (
-                <Navbar color="faded" light>
-                <img src={logo} alt=''/>
+            <Navbar color="faded" light>
+                <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+                <img src={logo} alt='' />
                 {' '}
-                    <NavbarBrand href="/" className="mr-auto">RevHeads</NavbarBrand>
-                    <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-                    <Collapse isOpen={!this.state.collapsed} navbar>
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink href="/builders">Builders</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="/cars">Cars</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
+                <NavbarBrand href="/" className="mr-auto">RevHeads</NavbarBrand>
+                <Collapse isOpen={!this.state.collapsed} navbar>
+                    <Nav navbar>
+                        <NavItem>
+                            <NavLink href="/builders">Builders</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/cars">Cars</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
         );
     }
 }

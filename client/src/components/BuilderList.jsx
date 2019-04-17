@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import AddBuilderForm from './AddBuilderForm'
-import { Button } from 'reactstrap'
+import { Button, Card } from 'reactstrap'
 
 export default class extends Component {
 
@@ -41,10 +41,10 @@ export default class extends Component {
             <div>
             <h2>Builders</h2>
                 {this.state.builders.map(builder => (
-                    <div key={builder.id}>
+                    <Card key={builder.id}>
                         <Link to={`/builder/${builder.id}`} >{builder.name}</Link>
                         <p>Cars: {builder.cars.length}</p>
-                    </div>
+                    </Card>
                 ))}
                 { this.state.isAddFormDisp ? 
                 <AddBuilderForm toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilders}/> 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Button } from 'reactstrap'
+import { Button, Card, CardTitle, CardImg, CardText, CardBody } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 import EditProjectForm from './EditProjectForm'
 
@@ -47,7 +47,7 @@ export default class Project extends Component {
     const copyProject = { ...this.state.project }
     copyProject[evt.target.name] = evt.target.value
     this.setState({ project: copyProject })
-}
+  }
 
   editProject = async (evt) => {
     evt.preventDefault()
@@ -71,9 +71,9 @@ export default class Project extends Component {
 
   toggleEditForm = () => {
     this.setState((state) => {
-        return ({ isEditFormShow: !state.isEditFormShow })
+      return ({ isEditFormShow: !state.isEditFormShow })
     })
-}
+  }
 
   render() {
     if (this.state.reDir === true) {
@@ -81,22 +81,26 @@ export default class Project extends Component {
     }
     return (
       <div>
-        {this.state.isEditFormShow ? 
-        <EditProjectForm  
-        project={this.state.project} 
-        handleChange={this.handleChange} 
-        editProject={this.editProject} 
-        fetchProject={this.fetchProject} />
-        : 
-        <div>
-        <img src={this.state.project.photo_url} alt='' />
-        <p>{this.state.project.title}</p>
-        <p>Date Started: {this.state.project.date_begin}</p>
-        <p>Date Complete: {this.state.project.date_end}</p>
-        <p>About... {this.state.project.details}</p>
-        <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.project.title}`}</Button>
-        <Button color='warning' onClick={this.toggleEditForm}>{`Edit ${this.state.project.title}`}</Button>
-        </div>
+        {this.state.isEditFormShow ?
+          <EditProjectForm
+            project={this.state.project}
+            handleChange={this.handleChange}
+            editProject={this.editProject}
+            fetchProject={this.fetchProject} />
+          :
+          <div>
+            <Card>
+              <CardBody>
+                <CardImg src={this.state.project.photo_url} alt='' />
+                <CardTitle>{this.state.project.title}</CardTitle>
+                <CardText>Date Started: {this.state.project.date_begin}</CardText>
+                <CardText>Date Complete: {this.state.project.date_end}</CardText>
+                <CardText>About... {this.state.project.details}</CardText>
+              </CardBody>
+            </Card>
+            <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.project.title}`}</Button>
+            <Button color='warning' onClick={this.toggleEditForm}>{`Edit ${this.state.project.title}`}</Button>
+          </div>
         }
       </div>
     )

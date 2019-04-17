@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Card } from 'reactstrap'
 
 export default class CarList extends Component {
 
@@ -32,10 +33,10 @@ export default class CarList extends Component {
             <div>
             <h2>Cars</h2>
                 {this.state.cars.map(car => (
-                    <div key={car.id}>
+                    <Card key={car.id}>
                         <Link to={`/car/${car.id}`} >{car.name}</Link>
                         <p>Votes: {car.votes}</p>
-                    </div>
+                    </Card>
                 ))}
             </div>
         )

@@ -8,6 +8,7 @@ export default class HomePage extends Component {
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
+                    <h1>Welcome to RevHeads</h1>
                 </header>
             </div>
         )

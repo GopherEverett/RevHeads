@@ -7,6 +7,7 @@ import Bar from './components/Navbar';
 import CarList from './components/CarList';
 import HomePage from './components/HomePage'
 import Project from './components/Project';
+import VinLookup from './components/VinLookup'
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path='/builder/:id' component={Builder}/>
             <Route path='/car/:id' component={Car}/>
             <Route path='/project/:id' component={Project}/>
+            <Route path='/vinlookup/' component={VinLookup}/>
           </Switch>
       </Router>
     );

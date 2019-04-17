@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
-import { Button } from 'reactstrap'
+import { Button, Card, CardImg, CardBody } from 'reactstrap'
 import AddCarForm from './AddCarForm'
 
 
@@ -58,20 +58,24 @@ export default class Builder extends Component {
         }
         return (
             <div>
-                <img src={this.state.builder.photo_url} alt="" />
-                <h1>{this.state.builder.name}</h1>
-                <h2>{this.state.builder.location}</h2>
+                <Card>
+                    <CardBody>
+                    <CardImg src={this.state.builder.photo_url} alt="" />
+                        <h1>{this.state.builder.name}</h1>
+                        <h2>{this.state.builder.location}</h2>
+                    </CardBody>
+                </Card>
                 <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.builder.name}`}</Button>
                 <h3>{this.state.builder.name}'s Cars</h3>
                 {this.state.cars.map(car => (
-                    <div key={car.id}>
+                    <Card key={car.id}>
                         <Link to={`/car/${car.id}`}><h4>{car.name}</h4></Link>
-                    </div>
+                    </Card>
                 ))}
-                { this.state.isAddFormDisp ? 
-                <AddCarForm builderId={this.state.builder.id} toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilder}/>
-                :
-                <Button color="success" onClick={this.toggleAddForm}>+Car</Button> }
+                {this.state.isAddFormDisp ?
+                    <AddCarForm builderId={this.state.builder.id} toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilder} />
+                    :
+                    <Button color="success" onClick={this.toggleAddForm}>+Car</Button>}
             </div>
         )
     }
