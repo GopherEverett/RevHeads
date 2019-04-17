@@ -51,7 +51,7 @@ export default class VinLookup extends Component {
     render() {
         return (
             <div>
-                <h2>Enter VIN to look up history</h2>
+                <h2>Enter VIN For Average Value</h2>
                 <Form inline onSubmit={this.handleSubmit}>
                     <FormGroup>
                         <Label for="vin" hidden>VIN</Label>
@@ -62,6 +62,8 @@ export default class VinLookup extends Component {
                 </Form>
                 <Card>
                     <CardBody>
+                        <CardText tag='h2'>{this.state.stuff.vehicle}</CardText>
+                        <CardText tag='h2'>Mileage: {this.state.stuff.mileage}</CardText>
                         <CardText tag='h2'>Average value: ${this.state.stuff.mean}</CardText>
                     </CardBody>
                 </Card>

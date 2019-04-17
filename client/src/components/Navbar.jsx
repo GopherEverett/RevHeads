@@ -21,10 +21,11 @@ export default class Bar extends React.Component {
     render() {
         return (
             <Navbar color="faded" light>
-                <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+                <NavbarBrand href="/" className="mr-auto">
                 <img src={logo} alt='' />
+                </NavbarBrand>
+                <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                 {' '}
-                <NavbarBrand href="/" className="mr-auto">RevHeads</NavbarBrand>
                 <Collapse isOpen={!this.state.collapsed} navbar>
                     <Nav navbar>
                         <NavItem>
@@ -32,6 +33,9 @@ export default class Bar extends React.Component {
                         </NavItem>
                         <NavItem>
                             <NavLink href="/cars">Cars</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/vinlookup/">Get Your Car's Value</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
