@@ -44,7 +44,7 @@ export default class Car extends Component {
 
     render() {
         if (this.state.reDir === true) {
-            return <Redirect to='/cars/' />
+            return <Redirect to='/builders/' />
         }
         return (
             <div>

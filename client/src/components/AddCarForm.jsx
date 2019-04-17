@@ -21,6 +21,26 @@ handleChange = (evt) => {
     this.setState({ newCar: copyNewCar })
 }
 
+createCar = async (evt) => {
+    evt.preventDefault()
+    try {
+        await axios.post('/api/v1/cars/', {
+            name: this.state.newCar.name,
+            make: this.state.newCar.make,
+            model: this.state.newCar.model,
+            year: this.state.newCar.year,
+            photo_url: this.state.newCar.photo_url,
+            builder: this.state.newCar.builder
+        });
+        this.props.toggleAddForm()
+        const builderId = this.props.builderId;
+        this.props.fetch(builderId)
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
     render() {
         return (
             <div>

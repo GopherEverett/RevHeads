@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Button } from 'reactstrap'
 
 export default class Project extends Component {
 
 state = {
-  project: {}
+  project: {},
+  reDir: false
 }
 
   componentDidMount() {
@@ -24,6 +26,18 @@ state = {
     }
   }
 
+  handleDelete = async () => {
+    try {
+        await axios.delete(`/api/v1/projects/${this.props.match.params.id}`)
+        this.setState({
+            reDir: true
+        })
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
   render() {
     return (
       <div>
@@ -32,6 +46,7 @@ state = {
         <p>Date Started: {this.state.project.date_begin}</p>
         <p>Date Complete: {this.state.project.date_end}</p>
         <p>About... {this.state.project.details}</p>
+        <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.project.title}`}</Button>
       </div>
     )
   }
