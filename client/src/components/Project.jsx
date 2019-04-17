@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Button } from 'reactstrap'
+import { Redirect } from 'react-router-dom'
 
 export default class Project extends Component {
 
@@ -39,6 +40,9 @@ state = {
 }
 
   render() {
+    if (this.state.reDir === true) {
+      return <Redirect to='/cars/' />
+  }
     return (
       <div>
       <img src={this.state.project.photo_url} alt=''/>

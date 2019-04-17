@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import { Button } from 'reactstrap'
+import AddProjectForm from './AddProjectForm'
 
 export default class Car extends Component {
 
     state = {
         car: {},
         projects: [],
-        reDir: false
+        reDir: false,
+        isAddFormDisp: false,
     }
 
     componentDidMount() {
@@ -42,6 +44,12 @@ export default class Car extends Component {
         }
     }
 
+    toggleAddForm = () => {
+        this.setState((state) => {
+            return ({ isAddFormDisp: !state.isAddFormDisp })
+        })
+    }
+
     render() {
         if (this.state.reDir === true) {
             return <Redirect to='/builders/' />
@@ -60,6 +68,10 @@ export default class Car extends Component {
                         <Link to={`/project/${project.id}`}><h4>{project.title}</h4></Link>
                     </div>
                 ))}
+                {this.state.isAddFormDisp ? 
+                <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar}/> : 
+                <Button color="success" onClick={this.toggleAddForm}>+Project</Button> }
+                
             </div>
         )
     }
