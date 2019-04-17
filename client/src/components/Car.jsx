@@ -32,6 +32,33 @@ export default class Car extends Component {
         }
     }
 
+    handleVoteChangeUp = (evt) => {
+        evt.preventDefault()
+        let copyCar = { ...this.state.car }
+        copyCar.votes += 1
+        this.setState({ car: copyCar }, () => {
+            this.updateVote()
+        })
+    }
+
+    handleVoteChangeDown = (evt) => {
+        evt.preventDefault()
+        let copyCar = { ...this.state.car }
+        copyCar.votes -= 1
+        this.setState({ car: copyCar }, () => {
+            this.updateVote()
+        })
+    }
+
+    updateVote = async () => {
+        try {
+            await axios.put(`/api/v1/cars/${this.props.match.params.id}/`, this.state.car)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
     handleDelete = async () => {
         try {
             await axios.delete(`/api/v1/cars/${this.props.match.params.id}`)
@@ -61,6 +88,9 @@ export default class Car extends Component {
                 <h2>Make: {this.state.car.make}</h2>
                 <h2>Model: {this.state.car.model}</h2>
                 <h2>Year: {this.state.car.year}</h2>
+                <p>Votes: {this.state.car.votes}</p>
+                <Button onClick={this.handleVoteChangeUp}>⬆︎ vote</Button>
+                <Button onClick={this.handleVoteChangeDown}>⬇︎ vote</Button>
                 <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.car.name}`}</Button>
                 <h2>Projects: </h2>
                 {this.state.projects.map(project => (
@@ -68,10 +98,10 @@ export default class Car extends Component {
                         <Link to={`/project/${project.id}`}><h4>{project.title}</h4></Link>
                     </div>
                 ))}
-                {this.state.isAddFormDisp ? 
-                <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar}/> : 
-                <Button color="success" onClick={this.toggleAddForm}>+Project</Button> }
-                
+                {this.state.isAddFormDisp ?
+                    <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar} /> :
+                    <Button color="success" onClick={this.toggleAddForm}>+Project</Button>}
+
             </div>
         )
     }
