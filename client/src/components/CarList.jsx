@@ -16,7 +16,7 @@ export default class CarList extends Component {
 
     fetchCars = async () => {
         try {
-            const res = await axios.get('/api/v1/cars');
+            const res = await axios.get('/api/v1/cars/');
             this.setState({ cars: res.data });
         }
         catch (err) {
@@ -34,7 +34,7 @@ export default class CarList extends Component {
             <h2>Cars</h2>
                 {this.state.cars.map(car => (
                     <Card key={car.id}>
-                        <Link to={`/car/${car.id}`} >{car.name}</Link>
+                        <Link to={`/car/${car.id}/`} >{car.name}</Link>
                         <p>Votes: {car.votes}</p>
                     </Card>
                 ))}

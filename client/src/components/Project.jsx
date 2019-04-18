@@ -20,7 +20,7 @@ export default class Project extends Component {
 
   fetchProject = async (projectId) => {
     try {
-      const projectRes = await axios.get(`/api/v1/projects/${projectId}`)
+      const projectRes = await axios.get(`/api/v1/projects/${projectId}/`)
       this.setState({
         project: projectRes.data,
         isEditFormShow: false
@@ -33,7 +33,7 @@ export default class Project extends Component {
 
   handleDelete = async () => {
     try {
-      await axios.delete(`/api/v1/projects/${this.props.match.params.id}`)
+      await axios.delete(`/api/v1/projects/${this.props.match.params.id}/`)
       this.setState({
         reDir: true
       })

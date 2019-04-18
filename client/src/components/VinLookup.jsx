@@ -24,7 +24,7 @@ export default class VinLookup extends Component {
     handleSubmit(evt) {
         console.log('bang')
         evt.preventDefault()
-        axios.get(`http://marketvalue.vinaudit.com/getmarketvalue.php?key=${VINAUDIT_KEY}&vin=${this.state.value}&format=json`)
+        axios.get(`https://marketvalue.vinaudit.com/getmarketvalue.php?key=${VINAUDIT_KEY}&vin=${this.state.value}&format=json/`)
             .then(res => {
                 this.setState({
                     stuff: res.data

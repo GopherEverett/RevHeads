@@ -20,7 +20,7 @@ export default class Car extends Component {
 
     fetchCar = async (carId) => {
         try {
-            const carRes = await axios.get(`/api/v1/cars/${carId}`)
+            const carRes = await axios.get(`/api/v1/cars/${carId}/`)
             this.setState({
                 car: carRes.data,
                 projects: carRes.data.projects
@@ -61,7 +61,7 @@ export default class Car extends Component {
 
     handleDelete = async () => {
         try {
-            await axios.delete(`/api/v1/cars/${this.props.match.params.id}`)
+            await axios.delete(`/api/v1/cars/${this.props.match.params.id}/`)
             this.setState({
                 reDir: true
             })
@@ -99,7 +99,7 @@ export default class Car extends Component {
                 <h2>Projects: </h2>
                 {this.state.projects.map(project => (
                     <div key={project.id}>
-                        <Link to={`/project/${project.id}`}><h4>{project.title}</h4></Link>
+                        <Link to={`/project/${project.id}/`}><h4>{project.title}</h4></Link>
                     </div>
                 ))}
                 {this.state.isAddFormDisp ?

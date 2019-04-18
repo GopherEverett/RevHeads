@@ -42,7 +42,7 @@ export default class extends Component {
             <h2>Builders</h2>
                 {this.state.builders.map(builder => (
                     <Card key={builder.id}>
-                        <Link to={`/builder/${builder.id}`} >{builder.name}</Link>
+                        <Link to={`/builder/${builder.id}/`} >{builder.name}</Link>
                         <p>Cars: {builder.cars.length}</p>
                     </Card>
                 ))}

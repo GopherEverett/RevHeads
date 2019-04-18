@@ -21,7 +21,7 @@ export default class Builder extends Component {
 
     fetchBuilder = async (builderId) => {
         try {
-            const builderRes = await axios.get(`/api/v1/builders/${builderId}`)
+            const builderRes = await axios.get(`/api/v1/builders/${builderId}/`)
             this.setState({
                 builder: builderRes.data,
                 cars: builderRes.data.cars
@@ -35,7 +35,7 @@ export default class Builder extends Component {
 
     handleDelete = async () => {
         try {
-            await axios.delete(`/api/v1/builders/${this.props.match.params.id}`)
+            await axios.delete(`/api/v1/builders/${this.props.match.params.id}/`)
             this.setState({
                 reDir: true
             })
