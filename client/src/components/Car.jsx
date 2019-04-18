@@ -82,8 +82,8 @@ export default class Car extends Component {
             return <Redirect to='/builders/' />
         }
         return (
-            <Col sm="12" md={{ size: 6, offset: 3 }}>
-            <br/>
+            <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
+                <br />
                 <Card>
                     <CardBody>
                         <CardImg top width="50%" src={this.state.car.photo_url} alt="" />
@@ -92,20 +92,24 @@ export default class Car extends Component {
                         <CardText tag="h3">Model: {this.state.car.model}</CardText>
                         <CardText tag="h3">Year: {this.state.car.year}</CardText>
                         <CardText tag="h3">Votes: {this.state.car.votes}</CardText>
+                        <Button onClick={this.handleVoteChangeUp}>⬆︎ vote</Button>
+                        <Button onClick={this.handleVoteChangeDown}>⬇︎ vote</Button>
+                        <h2>Projects: </h2>
+                        {this.state.projects.map(project => (
+                            <div key={project.id}>
+                                <Link to={`/project/${project.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{project.title}</h4></Link>
+                            </div>
+                        ))}
+                        <br />
+                        <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.car.name}`}</Button>
                     </CardBody>
                 </Card>
-                <Button onClick={this.handleVoteChangeUp}>⬆︎ vote</Button>
-                <Button onClick={this.handleVoteChangeDown}>⬇︎ vote</Button>
-                <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.car.name}`}</Button>
-                <h2>Projects: </h2>
-                {this.state.projects.map(project => (
-                    <div key={project.id}>
-                        <Link to={`/project/${project.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{project.title}</h4></Link>
-                    </div>
-                ))}
-                {this.state.isAddFormDisp ?
-                    <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar} /> :
-                    <Button color="success" onClick={this.toggleAddForm}>+Project</Button>}
+                <br/>
+                <div>
+                    {this.state.isAddFormDisp ?
+                        <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar} /> :
+                        <Button color="success" onClick={this.toggleAddForm}>+ Project</Button>}
+                </div>
             </Col>
         )
     }

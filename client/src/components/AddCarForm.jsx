@@ -43,7 +43,7 @@ createCar = async (evt) => {
 
     render() {
         return (
-            <div>
+            <div style={{ fontFamily: "Prompt" }}>
                 <Form inline onSubmit={this.createCar}>
                     <FormGroup>
                         <Label for="name" hidden>Name</Label>

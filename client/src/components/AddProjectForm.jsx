@@ -44,7 +44,7 @@ export default class AddProjectForm extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ fontFamily: "Prompt" }}>
                 <Form onSubmit={this.createProject}>
                     <FormGroup>
                         <Label for="title" hidden>Title</Label>

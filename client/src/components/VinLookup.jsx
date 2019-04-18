@@ -48,19 +48,19 @@ export default class VinLookup extends Component {
 
     render() {
         return (
-            <Col sm="12" md={{ size: 6, offset: 3 }}>
-            <br/>
-                <h2>Enter VIN</h2>
-                <Form inline>
-                    <FormGroup>
-                        <Label for="vin" hidden>VIN</Label>
-                        <Input type="text" name="vin" id="vin" placeholder="VIN" value={this.state.value} onChange={this.handleChange} />
-                    </FormGroup>
-                    <Button onClick={this.handleSubmit}>Get Info</Button>
-                </Form>
-                    <br/>
+            <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
+                <br />
                 <Card>
                     <CardBody>
+                        <h2>Enter VIN</h2>
+                        <Form inline>
+                            <FormGroup>
+                                <Label for="vin" hidden>VIN</Label>
+                                <Input type="text" name="vin" id="vin" placeholder="VIN" value={this.state.value} onChange={this.handleChange} />
+                            </FormGroup>
+                            <Button onClick={this.handleSubmit}>Get Info</Button>
+                        </Form>
+                        <br />
                         <CardText tag='h2'>{this.state.stuff.vehicle}</CardText>
                         <CardText tag='h2'>Mileage: {this.state.stuff.mileage}</CardText>
                         <CardText tag='h2'>Average value: ${this.state.stuff.mean}</CardText>

@@ -80,7 +80,8 @@ export default class Project extends Component {
       return <Redirect to='/cars/' />
     }
     return (
-      <div>
+      <div style={{ fontFamily: "Prompt" }}>
+        <br />
         {this.state.isEditFormShow ?
           <EditProjectForm
             project={this.state.project}
@@ -97,10 +98,11 @@ export default class Project extends Component {
                   <CardText tag="h3">Date Started: {this.state.project.date_begin}</CardText>
                   <CardText tag="h3">Date Complete: {this.state.project.date_end}</CardText>
                   <CardText tag="h3">About: {this.state.project.details}</CardText>
+                  <br />
+                  <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.project.title}`}</Button>
+                  <Button className="float-right" color='warning' onClick={this.toggleEditForm}>{`Edit ${this.state.project.title}`}</Button>
                 </CardBody>
               </Card>
-              <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.project.title}`}</Button>
-              <Button color='warning' onClick={this.toggleEditForm}>{`Edit ${this.state.project.title}`}</Button>
             </Col>
           </div>
         }

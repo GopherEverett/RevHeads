@@ -21,7 +21,7 @@ export default class Bar extends React.Component {
     }
     render() {
         return (
-            <Navbar color="light" light>
+            <Navbar color="light" light style={{ fontFamily: "Prompt" }}>
                 <NavbarBrand href="/" className="mr-auto">
                 <img src={logo} alt='' />
                 </NavbarBrand>

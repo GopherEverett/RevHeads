@@ -57,26 +57,28 @@ export default class Builder extends Component {
             return <Redirect to='/builders/' />
         }
         return (
-            <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
                 <br />
                 <Card>
                     <CardBody>
                         <CardImg src={this.state.builder.photo_url} alt="" />
                         <h1>{this.state.builder.name}</h1>
                         <h2>{this.state.builder.location}</h2>
+                        <h3>Cars:</h3>
+                        {this.state.cars.map(car => (
+                            <Card key={car.id}>
+                                <Link to={`/car/${car.id}`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{car.name}</h4></Link>
+                            </Card>
+                        ))}
+                        <br />
+                        <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.builder.name}`}</Button>
                     </CardBody>
                 </Card>
-                <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.builder.name}`}</Button>
-                <h3>{this.state.builder.name}'s Cars</h3>
-                {this.state.cars.map(car => (
-                    <Card key={car.id}>
-                        <Link to={`/car/${car.id}`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{car.name}</h4></Link>
-                    </Card>
-                ))}
+                <br />
                 {this.state.isAddFormDisp ?
                     <AddCarForm builderId={this.state.builder.id} toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilder} />
                     :
-                    <Button color="success" onClick={this.toggleAddForm}>+Car</Button>}
+                    <Button color="success" onClick={this.toggleAddForm}>+ Car</Button>}
             </Col>
         )
     }

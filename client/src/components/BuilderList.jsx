@@ -38,7 +38,7 @@ export default class extends Component {
             return <div>{this.state.error}</div>
         }
         return (
-            <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
             <br/>
                 <h2>Builders</h2>
                 {this.state.builders.map(builder => (

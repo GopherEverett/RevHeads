@@ -36,7 +36,7 @@ createBuilder = async (evt) => {
 
     render() {
         return (
-            <Form inline onSubmit={this.createBuilder}>
+            <Form inline onSubmit={this.createBuilder} style={{ fontFamily: "Prompt" }}>
                 <FormGroup>
                     <Label for="name" hidden>Name</Label>
                     <Input type="text" name="name" id="name" placeholder="Name" onChange={this.handleChange} />
