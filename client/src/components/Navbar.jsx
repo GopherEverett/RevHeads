@@ -2,6 +2,7 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import logo from '../images/favicon-32x32.png'
+import { Link } from 'react-router-dom'
 
 export default class Bar extends React.Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export default class Bar extends React.Component {
                 <Collapse isOpen={!this.state.collapsed} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink href="/builders">Builders</NavLink>
+                            <NavLink tag={Link} to="/builders">Builders</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="/cars">Cars</NavLink>
