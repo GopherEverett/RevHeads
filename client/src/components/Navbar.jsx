@@ -33,10 +33,10 @@ export default class Bar extends React.Component {
                             <NavLink tag={Link} to="/builders">Builders</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/cars">Cars</NavLink>
+                            <NavLink tag={Link} to="/cars">Cars</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/vinlookup/">Get Your Car's Value</NavLink>
+                            <NavLink tag={Link} to="/vinlookup/">Get Your Car's Value</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
