@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', views.FrontendAppView.as_view()), #New URL for the index route
+    path('', views.FrontendAppView.as_view()), #New URL for the index route
     path('api/v1/', include('revheads_app.urls')),
 ]

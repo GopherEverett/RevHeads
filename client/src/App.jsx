@@ -16,7 +16,7 @@ class App extends Component {
       <Bar/>
           <Switch>
             <Route exact path='/' component={HomePage}/>
-            <Route path='/builders' component={BuilderList}/>
+            <Route exact path='/builders' component={BuilderList}/>
             <Route path='/cars/' component={CarList}/>
             <Route path='/builder/:id' component={Builder}/>
             <Route path='/car/:id' component={Car}/>
