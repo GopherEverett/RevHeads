@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { Card } from 'reactstrap'
+import { Card, CardBody, Col } from 'reactstrap'
 
 export default class CarList extends Component {
 
@@ -30,15 +30,20 @@ export default class CarList extends Component {
             return <div>{this.state.error}</div>
         }
         return (
-            <div>
-            <h2>Cars</h2>
+            <Col sm="12" md={{ size: 6, offset: 3 }}>
+                <h2>Cars</h2>
                 {this.state.cars.map(car => (
-                    <Card key={car.id}>
-                        <Link to={`/car/${car.id}/`} >{car.name}</Link>
-                        <p>Votes: {car.votes}</p>
-                    </Card>
+                    <div>
+                        <Card key={car.id}>
+                            <CardBody>
+                                <Link to={`/car/${car.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h2>{car.name}</h2></Link>
+                                <h3>Votes: {car.votes}</h3>
+                            </CardBody>
+                        </Card>
+                        <br/>
+                    </div>
                 ))}
-            </div>
+            </Col>
         )
     }
 

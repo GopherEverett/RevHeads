@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Form, Input, Label, FormGroup, Button, Card, CardBody, CardText } from 'reactstrap'
+import { Form, Input, Label, FormGroup, Button, Card, CardBody, CardText, Col } from 'reactstrap'
 
 
 const VINAUDIT_KEY = process.env.REACT_APP_VINAUDIT_KEY
@@ -10,11 +10,13 @@ export default class VinLookup extends Component {
         super(props);
         this.state = {
             value: '',
-            stuff: {}
+            stuff: {},
+            moreStuff: {}
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmitData = this.handleSubmitData.bind(this);
     }
 
     handleChange(evt) {
@@ -29,45 +31,45 @@ export default class VinLookup extends Component {
                 this.setState({
                     stuff: res.data
                 })
+            }).then(() => {
+                this.handleSubmitData()
             })
     }
 
-
-
-    // async handleSubmit(evt) {
-    //     evt.preventDefault();
-    //     console.log(evt)
-    //     try {
-    //         const res = await axios.get(`https://specifications.vinaudit.com/v3/specifications?vin=${this.state.value}&key=R38ZUUYAU4S6FED&format=json`);
-    //         this.setState({
-    //             stuff: res.data
-    //         })
-    //     }
-    //     catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+    handleSubmitData() {
+        // evt.preventDefault()
+        axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValuesExtended/${this.state.value}?format=json`)
+            .then(res => {
+                this.setState({
+                    moreStuff: res.data.Results[0]
+                })
+            })
+    }
 
     render() {
         return (
-            <div>
-                <h2>Enter VIN For Average Value</h2>
-                <Form inline onSubmit={this.handleSubmit}>
+            <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <br/>
+                <h2>Enter VIN</h2>
+                <Form inline>
                     <FormGroup>
                         <Label for="vin" hidden>VIN</Label>
                         <Input type="text" name="vin" id="vin" placeholder="VIN" value={this.state.value} onChange={this.handleChange} />
                     </FormGroup>
-                    {' '}
-                    <Button type='submit'>Submit</Button>
+                    <Button onClick={this.handleSubmit}>Get Info</Button>
                 </Form>
+                    <br/>
                 <Card>
                     <CardBody>
                         <CardText tag='h2'>{this.state.stuff.vehicle}</CardText>
                         <CardText tag='h2'>Mileage: {this.state.stuff.mileage}</CardText>
                         <CardText tag='h2'>Average value: ${this.state.stuff.mean}</CardText>
+                        <CardText tag='h2'>Engine Size: {this.state.moreStuff.DisplacementL}L</CardText>
+                        <CardText tag='h2'>Engine HP: {this.state.moreStuff.EngineHP}</CardText>
+                        <CardText tag='h2'>Made In: {this.state.moreStuff.PlantState} {this.state.moreStuff.PlantCountry}</CardText>
                     </CardBody>
                 </Card>
-            </div>
+            </Col>
         )
     }
 }

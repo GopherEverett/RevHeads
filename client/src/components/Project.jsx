@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Button, Card, CardTitle, CardImg, CardText, CardBody } from 'reactstrap'
+import { Button, Card, CardTitle, CardImg, CardText, CardBody, Col } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 import EditProjectForm from './EditProjectForm'
 
@@ -89,17 +89,19 @@ export default class Project extends Component {
             fetchProject={this.fetchProject} />
           :
           <div>
-            <Card>
-              <CardBody>
-                <CardImg src={this.state.project.photo_url} alt='' />
-                <CardTitle>{this.state.project.title}</CardTitle>
-                <CardText>Date Started: {this.state.project.date_begin}</CardText>
-                <CardText>Date Complete: {this.state.project.date_end}</CardText>
-                <CardText>About... {this.state.project.details}</CardText>
-              </CardBody>
-            </Card>
-            <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.project.title}`}</Button>
-            <Button color='warning' onClick={this.toggleEditForm}>{`Edit ${this.state.project.title}`}</Button>
+            <Col sm="12" md={{ size: 6, offset: 3 }}>
+              <Card>
+                <CardBody>
+                  <CardTitle tag="h2">{this.state.project.title}</CardTitle>
+                  <CardImg src={this.state.project.photo_url} alt='' />
+                  <CardText tag="h3">Date Started: {this.state.project.date_begin}</CardText>
+                  <CardText tag="h3">Date Complete: {this.state.project.date_end}</CardText>
+                  <CardText tag="h3">About: {this.state.project.details}</CardText>
+                </CardBody>
+              </Card>
+              <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.project.title}`}</Button>
+              <Button color='warning' onClick={this.toggleEditForm}>{`Edit ${this.state.project.title}`}</Button>
+            </Col>
           </div>
         }
       </div>

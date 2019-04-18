@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
-import { Button, Card, CardImg, CardText, CardTitle, CardBody } from 'reactstrap'
+import { Button, Card, CardImg, CardText, CardTitle, CardBody, Col } from 'reactstrap'
 import AddProjectForm from './AddProjectForm'
 
 export default class Car extends Component {
@@ -82,7 +82,8 @@ export default class Car extends Component {
             return <Redirect to='/builders/' />
         }
         return (
-            <div>
+            <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <br/>
                 <Card>
                     <CardBody>
                         <CardImg top width="50%" src={this.state.car.photo_url} alt="" />
@@ -99,14 +100,13 @@ export default class Car extends Component {
                 <h2>Projects: </h2>
                 {this.state.projects.map(project => (
                     <div key={project.id}>
-                        <Link to={`/project/${project.id}/`}><h4>{project.title}</h4></Link>
+                        <Link to={`/project/${project.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{project.title}</h4></Link>
                     </div>
                 ))}
                 {this.state.isAddFormDisp ?
                     <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar} /> :
                     <Button color="success" onClick={this.toggleAddForm}>+Project</Button>}
-
-            </div>
+            </Col>
         )
     }
 }

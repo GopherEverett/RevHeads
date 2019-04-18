@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import AddBuilderForm from './AddBuilderForm'
-import { Button, Card } from 'reactstrap'
+import { Button, Card, Col } from 'reactstrap'
 
 export default class extends Component {
 
@@ -38,19 +38,23 @@ export default class extends Component {
             return <div>{this.state.error}</div>
         }
         return (
-            <div>
-            <h2>Builders</h2>
+            <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <br/>
+                <h2>Builders</h2>
                 {this.state.builders.map(builder => (
-                    <Card key={builder.id}>
-                        <Link to={`/builder/${builder.id}/`} >{builder.name}</Link>
-                        <p>Cars: {builder.cars.length}</p>
-                    </Card>
+                    <div>
+                        <Card key={builder.id} style={{ backgroundColor: "rgba(242, 244, 247, .75)" }}>
+                            <Link to={`/builder/${builder.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h2>{builder.name}</h2></Link>
+                            <h3>Cars: {builder.cars.length}</h3>
+                        </Card>
+                        <br/>
+                    </div>
                 ))}
-                { this.state.isAddFormDisp ? 
-                <AddBuilderForm toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilders}/> 
-                : 
-                <Button color="success" onClick={this.toggleAddForm}>+ Builder</Button>  }
-            </div>
+                {this.state.isAddFormDisp ?
+                    <AddBuilderForm toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilders} />
+                    :
+                    <Button color="success" onClick={this.toggleAddForm}>+ Builder</Button>}
+            </Col>
         )
     }
 

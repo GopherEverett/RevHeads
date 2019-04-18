@@ -21,7 +21,7 @@ export default class Bar extends React.Component {
     }
     render() {
         return (
-            <Navbar color="faded" light>
+            <Navbar color="light" light>
                 <NavbarBrand href="/" className="mr-auto">
                 <img src={logo} alt='' />
                 </NavbarBrand>
@@ -36,7 +36,7 @@ export default class Bar extends React.Component {
                             <NavLink tag={Link} to="/cars">Cars</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/vinlookup/">Get Your Car's Value</NavLink>
+                            <NavLink tag={Link} to="/vinlookup/">Get more info on your car</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
