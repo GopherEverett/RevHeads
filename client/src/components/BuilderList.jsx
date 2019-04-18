@@ -24,7 +24,7 @@ export default class extends Component {
 
     fetchBuilders = async () => {
         try {
-            const res = await axios.get('/api/v1/builders');
+            const res = await axios.get('/api/v1/builders/');
             this.setState({ builders: res.data });
         }
         catch (err) {
