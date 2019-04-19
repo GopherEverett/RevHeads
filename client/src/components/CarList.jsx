@@ -56,8 +56,8 @@ export default class CarList extends Component {
             <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
                 <br />
                 <h2 style={{ color: "white" }}>Cars</h2>
-                {this.state.cars.map((car, i) => (
-                    <div key={i}>
+                {this.state.cars.map((car) => (
+                    <div key={car.id}>
                         <Card style={{ backgroundColor: "rgba(242, 244, 247, .7)" }}>
                             <CardBody>
                                 <Link to={`/car/${car.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h2>{car.name}</h2></Link>

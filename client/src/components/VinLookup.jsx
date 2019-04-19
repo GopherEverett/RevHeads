@@ -24,7 +24,6 @@ export default class VinLookup extends Component {
     }
 
     handleSubmit(evt) {
-        console.log('bang')
         evt.preventDefault()
         axios.get(`https://marketvalue.vinaudit.com/getmarketvalue.php?key=${VINAUDIT_KEY}&vin=${this.state.value}&format=json/`)
             .then(res => {
@@ -37,11 +36,16 @@ export default class VinLookup extends Component {
     }
 
     handleSubmitData() {
-        // evt.preventDefault()
         axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValuesExtended/${this.state.value}?format=json`)
             .then(res => {
+
+                let obj = res.data.Results[0]
+                let newObj = {};
+                Object.keys(obj).forEach((prop) => {
+                    if(obj[prop]) { newObj[prop] = obj[prop];}
+                });
                 this.setState({
-                    moreStuff: res.data.Results[0]
+                    moreStuff: newObj
                 })
             })
     }
@@ -66,7 +70,11 @@ export default class VinLookup extends Component {
                         <CardText tag='h2'>Average value: ${this.state.stuff.mean}</CardText>
                         <CardText tag='h2'>Engine Size: {this.state.moreStuff.DisplacementL}L</CardText>
                         <CardText tag='h2'>Engine HP: {this.state.moreStuff.EngineHP}</CardText>
-                        <CardText tag='h2'>Made In: {this.state.moreStuff.PlantState} {this.state.moreStuff.PlantCountry}</CardText>
+                        <CardText tag='h2'>Made In:{' '}
+                            {this.state.moreStuff.PlantCity}{', '}
+                            {this.state.moreStuff.PlantState}{' '}
+                            {this.state.moreStuff.PlantCountry}{' '}
+                        </CardText>
                     </CardBody>
                 </Card>
             </Col>

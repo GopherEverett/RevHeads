@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import AddBuilderForm from './AddBuilderForm'
-import { Button, Card, Col } from 'reactstrap'
+import { Button, Card, CardBody, Col } from 'reactstrap'
 
 export default class extends Component {
 
@@ -39,15 +39,17 @@ export default class extends Component {
         }
         return (
             <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
-            <br/>
+                <br />
                 <h2 style={{ color: 'white' }}>Builders</h2>
-                {this.state.builders.map((builder, i) => (
-                    <div key={i}>
+                {this.state.builders.map((builder) => (
+                    <div key={builder.id}>
                         <Card style={{ backgroundColor: "rgba(242, 244, 247, .75)" }}>
-                            <Link to={`/builder/${builder.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h2>{builder.name}</h2></Link>
-                            <h3>Cars: {builder.cars.length}</h3>
+                            <CardBody>
+                                <Link to={`/builder/${builder.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h2>{builder.name}</h2></Link>
+                                <h3>Cars: {builder.cars.length}</h3>
+                            </CardBody>
                         </Card>
-                        <br/>
+                        <br />
                     </div>
                 ))}
                 {this.state.isAddFormDisp ?
