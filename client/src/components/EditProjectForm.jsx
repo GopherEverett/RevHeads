@@ -6,6 +6,7 @@ export default class EditProjectForm extends Component {
     render() {
         return (
             <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
+                <br />
                 <Form onSubmit={this.props.editProject}>
                     <FormGroup>
                         <Label for="title" hidden>Title</Label>

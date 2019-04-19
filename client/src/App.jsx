@@ -17,7 +17,7 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
-height: 200vh;
+height: 160vh;
 width: 100vw;
 display; flex;
 align-content: center;

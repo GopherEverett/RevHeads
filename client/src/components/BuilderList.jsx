@@ -40,7 +40,7 @@ export default class extends Component {
         return (
             <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
             <br/>
-                <h2>Builders</h2>
+                <h2 style={{ color: 'white' }}>Builders</h2>
                 {this.state.builders.map(builder => (
                     <div>
                         <Card key={builder.id} style={{ backgroundColor: "rgba(242, 244, 247, .75)" }}>
