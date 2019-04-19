@@ -59,7 +59,7 @@ export default class Builder extends Component {
         return (
             <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
                 <br />
-                <Card>
+                <Card style={{ backgroundColor: "rgba(242, 244, 247, .7)" }}>
                     <CardBody>
                         <CardImg src={this.state.builder.photo_url} alt="" />
                         <h1>{this.state.builder.name}</h1>

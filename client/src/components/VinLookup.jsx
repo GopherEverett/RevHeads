@@ -11,7 +11,7 @@ export default class VinLookup extends Component {
         this.state = {
             value: '',
             stuff: {},
-            moreStuff: {}
+            moreStuff: []
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -44,17 +44,19 @@ export default class VinLookup extends Component {
                 Object.keys(obj).forEach((prop) => {
                     if(obj[prop]) { newObj[prop] = obj[prop];}
                 });
+                let newArr = Object.entries(newObj)
+                console.log(newArr)
                 this.setState({
-                    moreStuff: newObj
+                    moreStuff: newArr
                 })
             })
     }
 
     render() {
         return (
-            <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
+            <Col sm="12" md={{ size: 8, offset: 2 }} style={{ fontFamily: "Prompt" }}>
                 <br />
-                <Card>
+                <Card style={{ backgroundColor: "rgba(242, 244, 247, .75)" }}>
                     <CardBody>
                         <h2>Enter VIN</h2>
                         <Form inline>
@@ -68,13 +70,20 @@ export default class VinLookup extends Component {
                         <CardText tag='h2'>{this.state.stuff.vehicle}</CardText>
                         <CardText tag='h2'>Mileage: {this.state.stuff.mileage}</CardText>
                         <CardText tag='h2'>Average value: ${this.state.stuff.mean}</CardText>
-                        <CardText tag='h2'>Engine Size: {this.state.moreStuff.DisplacementL}L</CardText>
+                        {/* <CardText tag='h2'>Engine Size: {this.state.moreStuff.DisplacementL}L</CardText>
                         <CardText tag='h2'>Engine HP: {this.state.moreStuff.EngineHP}</CardText>
                         <CardText tag='h2'>Made In:{' '}
                             {this.state.moreStuff.PlantCity}{', '}
                             {this.state.moreStuff.PlantState}{' '}
                             {this.state.moreStuff.PlantCountry}{' '}
-                        </CardText>
+                        </CardText> */}
+
+                        {this.state.moreStuff.map((datum) => (
+                            <div key={datum.id}>
+                                <h3>{datum[0]}{': '}{datum[1]}</h3>
+                            </div>
+                        ))}
+
                     </CardBody>
                 </Card>
             </Col>

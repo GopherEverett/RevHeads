@@ -91,7 +91,7 @@ export default class Project extends Component {
           :
           <div>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
-              <Card>
+              <Card style={{ backgroundColor: "rgba(242, 244, 247, .7)" }}>
                 <CardBody>
                   <CardTitle tag="h2">{this.state.project.title}</CardTitle>
                   <CardImg src={this.state.project.photo_url} alt='' />

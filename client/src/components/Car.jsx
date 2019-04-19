@@ -84,7 +84,7 @@ export default class Car extends Component {
         return (
             <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
                 <br />
-                <Card>
+                <Card style={{ backgroundColor: "rgba(242, 244, 247, .7)" }}>
                     <CardBody>
                         <CardImg top width="50%" src={this.state.car.photo_url} alt="" />
                         <CardTitle tag="h2">Name: {this.state.car.name}</CardTitle>

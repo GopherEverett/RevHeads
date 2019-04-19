@@ -12,15 +12,15 @@ import styled from 'styled-components';
 import img from './images/francesco-ungaro-1208184-unsplash.jpg'
 
 const Body = styled.div`
-background-image: url(${img});
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-background-attachment: fixed;
-height: 160vh;
-width: 100vw;
-display; flex;
-align-content: center;
+  background-image: url(${img});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  align-content: center;
 `
 
 class App extends Component {
