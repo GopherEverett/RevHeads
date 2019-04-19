@@ -41,9 +41,9 @@ export default class extends Component {
             <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
             <br/>
                 <h2 style={{ color: 'white' }}>Builders</h2>
-                {this.state.builders.map(builder => (
-                    <div>
-                        <Card key={builder.id} style={{ backgroundColor: "rgba(242, 244, 247, .75)" }}>
+                {this.state.builders.map((builder, i) => (
+                    <div key={i}>
+                        <Card style={{ backgroundColor: "rgba(242, 244, 247, .75)" }}>
                             <Link to={`/builder/${builder.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h2>{builder.name}</h2></Link>
                             <h3>Cars: {builder.cars.length}</h3>
                         </Card>

@@ -11,55 +11,36 @@ export default class CarList extends Component {
         cars: []
     }
 
-    sortVoteOrder=() =>{
+    sortVoteOrder = () => {
         let holder = []
-        let copyCars = [ ...this.state.cars ]
-        console.log(copyCars)
+        let copyCars = [...this.state.firstCars]
         copyCars.map((oneCar) => {
             holder.push(oneCar.votes)
-            console.log(holder)
 
         })
-        // console.log(holder)
         holder.sort(function (a, b) { return b - a })
-        // console.log(holder)
         let setToGoback = [];
         for (let i = 0; i < holder.length; i++) {
             for (let i2 = 0; i2 < copyCars.length; i2++) {
-                console.log(copyCars)
                 if (holder[i] === copyCars[i2].votes) {
                     setToGoback.push(copyCars[i2])
                     copyCars.splice(i2, 1)
                 }
             }
         }
-        console.log(setToGoback)
         this.setState({ cars: setToGoback })
     }
-    // sortVoteOrder() {
-    //     this.state.cars.map((eachCar) => {
-    //         let holder = []
-    //         holder.push(eachCar.votes)
-    //         return holder
-    //     }).then((holder) => {
-    //         holder.sort(function(a, b){return a - b})
-    //         return holder
-    //     }).then((holder) => {
-    //         holder.map((votes) => {
-
-    //         })
-    //     })
-    // }
 
     componentDidMount() {
-        this.fetchCars();
-        this.sortVoteOrder();
+        this.fetchCars().then(() => {
+            this.sortVoteOrder()
+        })
     }
 
     fetchCars = async () => {
         try {
             const res = await axios.get('/api/v1/cars/');
-            this.setState({ cars: res.data });
+            this.setState({ firstCars: res.data });
         }
         catch (err) {
             console.log(err)
@@ -73,7 +54,6 @@ export default class CarList extends Component {
         }
         return (
             <Col sm="12" md={{ size: 6, offset: 3 }} style={{ fontFamily: "Prompt" }}>
-                <button onClick={this.sortVoteOrder}> </button>
                 <br />
                 <h2 style={{ color: "white" }}>Cars</h2>
                 {this.state.cars.map((car, i) => (
