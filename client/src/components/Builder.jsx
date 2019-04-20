@@ -66,19 +66,19 @@ export default class Builder extends Component {
                         <h2>{this.state.builder.location}</h2>
                         <h3>Cars:</h3>
                         {this.state.cars.map(car => (
-                            <Card key={car.id}>
+                            <div key={car.id}>
                                 <Link to={`/car/${car.id}`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{car.name}</h4></Link>
-                            </Card>
+                            </div>
                         ))}
-                        <br />
-                        <Button color="danger" onClick={this.handleDelete}>{`Delete ${this.state.builder.name}`}</Button>
-                    </CardBody>
-                </Card>
                 <br />
                 {this.state.isAddFormDisp ?
                     <AddCarForm builderId={this.state.builder.id} toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilder} />
                     :
                     <Button color="success" onClick={this.toggleAddForm}>+ Car</Button>}
+                        {/* <br /> */}
+                        <Button className="float-right" color="danger" onClick={this.handleDelete}>{`Delete ${this.state.builder.name}`}</Button>
+                    </CardBody>
+                </Card>
             </Col>
         )
     }

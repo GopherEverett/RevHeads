@@ -13,7 +13,6 @@ export default class VinLookup extends Component {
             stuff: {},
             moreStuff: []
         };
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitData = this.handleSubmitData.bind(this);
