@@ -5,7 +5,12 @@
 .App-logo {
   animation: App-logo-spin infinite 40s linear;
   height: 50vmin;
-  pointer-events: none;
+  transition: height 3s;
+}
+
+.App-logo:hover {
+  animation: App-logo-spin infinite 5s linear;
+  height: 60vmin;
 }
 
 .App-header {
