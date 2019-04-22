@@ -75,7 +75,6 @@ export default class Builder extends Component {
                     <AddCarForm builderId={this.state.builder.id} toggleAddForm={this.toggleAddForm} fetch={this.fetchBuilder} />
                     :
                     <Button color="success" onClick={this.toggleAddForm}>+ Car</Button>}
-                        {/* <br /> */}
                         <Button className="float-right" color="danger" onClick={this.handleDelete}>{`Delete ${this.state.builder.name}`}</Button>
                     </CardBody>
                 </Card>

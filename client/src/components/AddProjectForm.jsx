@@ -6,7 +6,7 @@ import axios from 'axios'
 export default class AddProjectForm extends Component {
 
     state = {
-        newProject:{
+        newProject: {
             title: '',
             date_begin: '',
             date_end: '',
@@ -15,7 +15,7 @@ export default class AddProjectForm extends Component {
             car: this.props.carId
         }
     }
-    
+
     handleChange = (evt) => {
         const copyNewProject = { ...this.state.newProject }
         copyNewProject[evt.target.name] = evt.target.value

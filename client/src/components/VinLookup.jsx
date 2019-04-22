@@ -41,7 +41,7 @@ export default class VinLookup extends Component {
                 let obj = res.data.Results[0]
                 let newObj = {};
                 Object.keys(obj).forEach((prop) => {
-                    if(obj[prop]) { newObj[prop] = obj[prop];}
+                    if (obj[prop]) { newObj[prop] = obj[prop]; }
                 });
                 let newArr = Object.entries(newObj)
                 console.log(newArr)
@@ -69,20 +69,11 @@ export default class VinLookup extends Component {
                         <CardText tag='h2'>{this.state.stuff.vehicle}</CardText>
                         <CardText tag='h2'>Mileage: {this.state.stuff.mileage}</CardText>
                         <CardText tag='h2'>Average value: ${this.state.stuff.mean}</CardText>
-                        {/* <CardText tag='h2'>Engine Size: {this.state.moreStuff.DisplacementL}L</CardText>
-                        <CardText tag='h2'>Engine HP: {this.state.moreStuff.EngineHP}</CardText>
-                        <CardText tag='h2'>Made In:{' '}
-                            {this.state.moreStuff.PlantCity}{', '}
-                            {this.state.moreStuff.PlantState}{' '}
-                            {this.state.moreStuff.PlantCountry}{' '}
-                        </CardText> */}
-
                         {this.state.moreStuff.map((datum) => (
                             <div key={datum.id}>
                                 <h3>{datum[0]}{': '}{datum[1]}</h3>
                             </div>
                         ))}
-
                     </CardBody>
                 </Card>
             </Col>

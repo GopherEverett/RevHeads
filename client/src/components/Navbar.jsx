@@ -23,9 +23,9 @@ export default class Bar extends React.Component {
         return (
             <Navbar color='light' light style={{ fontFamily: "Prompt" }}>
                 <NavbarBrand href="/" className="mr-auto">
-                <img src={logo} alt='' />
+                    <img src={logo} alt='' />
                 </NavbarBrand>
-                <NavbarToggler onClick={this.toggleNavbar} className="mr-2"/>
+                <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                 {' '}
                 <Collapse isOpen={!this.state.collapsed} navbar>
                     <Nav navbar style={{ color: "white" }}>

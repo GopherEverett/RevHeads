@@ -15,7 +15,7 @@ Users can submit their car's VIN and see it's value and manufacturing data.
 ## Technologies Utilized
 - Django REST framework 
 - PostgresQL database
-- React.js for the front-end
+- React.js front-end
 - VinAudit and NHTSA API's
 
 ### Features

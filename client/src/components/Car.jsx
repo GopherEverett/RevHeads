@@ -101,13 +101,13 @@ export default class Car extends Component {
                             </div>
                         ))}
                         <br />
-                <br/>
-                <div>
-                    {this.state.isAddFormDisp ?
-                        <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar} /> :
-                        <Button color="success" onClick={this.toggleAddForm}>+ Project</Button>}
-                        <Button className="float-right" color="danger" onClick={this.handleDelete}>{`Delete ${this.state.car.name}`}</Button>
-                </div>
+                        <br />
+                        <div>
+                            {this.state.isAddFormDisp ?
+                                <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar} /> :
+                                <Button color="success" onClick={this.toggleAddForm}>+ Project</Button>}
+                            <Button className="float-right" color="danger" onClick={this.handleDelete}>{`Delete ${this.state.car.name}`}</Button>
+                        </div>
                     </CardBody>
                 </Card>
             </Col>

@@ -60,12 +60,12 @@ export default class CarList extends Component {
                 {this.state.cars.map((car) => (
                     <div key={car.id}>
                         <Card style={{ backgroundColor: "rgba(242, 244, 247, .7)" }}>
-                                <CardBody>
-                                    <Link 
-                                    to={`/car/${car.id}/`} 
+                            <CardBody>
+                                <Link
+                                    to={`/car/${car.id}/`}
                                     style={{ textDecoration: 'none', color: 'blue' }}><h2>{car.name}</h2></Link>
-                                    <h3>Votes: {car.votes}</h3>
-                                </CardBody>
+                                <h3>Votes: {car.votes}</h3>
+                            </CardBody>
                         </Card>
                         <br />
                     </div>

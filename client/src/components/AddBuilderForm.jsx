@@ -4,35 +4,35 @@ import axios from 'axios'
 
 export default class AddBuilderForm extends React.Component {
 
-state = {
-    newBuilder: {
-        name: '',
-        location: '',
-        photo_url: ''
+    state = {
+        newBuilder: {
+            name: '',
+            location: '',
+            photo_url: ''
+        }
     }
-}
 
-handleChange = (evt) => {
-    const copyNewBuilder = { ...this.state.newBuilder }
-    copyNewBuilder[evt.target.name] = evt.target.value
-    this.setState({ newBuilder: copyNewBuilder })
-}
+    handleChange = (evt) => {
+        const copyNewBuilder = { ...this.state.newBuilder }
+        copyNewBuilder[evt.target.name] = evt.target.value
+        this.setState({ newBuilder: copyNewBuilder })
+    }
 
-createBuilder = async (evt) => {
-    evt.preventDefault()
-    try {
-        await axios.post('/api/v1/builders/', {
-            name: this.state.newBuilder.name,
-            location: this.state.newBuilder.location,
-            photo_url: this.state.newBuilder.photo_url
-        });
-        this.props.toggleAddForm()
-        this.props.fetch()
+    createBuilder = async (evt) => {
+        evt.preventDefault()
+        try {
+            await axios.post('/api/v1/builders/', {
+                name: this.state.newBuilder.name,
+                location: this.state.newBuilder.location,
+                photo_url: this.state.newBuilder.photo_url
+            });
+            this.props.toggleAddForm()
+            this.props.fetch()
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
-    catch (err) {
-        console.log(err)
-    }
-}
 
     render() {
         return (
