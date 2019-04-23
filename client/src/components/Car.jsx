@@ -97,7 +97,7 @@ export default class Car extends Component {
                         <h2>Projects: </h2>
                         {this.state.projects.map(project => (
                             <div key={project.id}>
-                                <Link to={`/project/${project.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{project.title}</h4></Link>
+                                <Link to={`/projects/${project.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{project.title}</h4></Link>
                             </div>
                         ))}
                         <br />

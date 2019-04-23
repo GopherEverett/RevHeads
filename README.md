@@ -1,7 +1,7 @@
 # RevHeads
 
 ## Overview
-WDI-20 Project #4: React front-end with Django REST-ful framework
+WDI-20 Project #4: React front-end with Django REST framework back-end
 
 RevHeads is an app which allows auto enthusiasts to browse a list of car builders and see their project cars or "builds". These cars can be up or down voted by the user. Users can choose individual builds and see details of those builds in a projects section.
 Users can submit their car's VIN and see it's value and manufacturing data. 

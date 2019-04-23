@@ -67,7 +67,7 @@ export default class Builder extends Component {
                         <h3>Cars:</h3>
                         {this.state.cars.map(car => (
                             <div key={car.id}>
-                                <Link to={`/car/${car.id}`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{car.name}</h4></Link>
+                                <Link to={`/cars/${car.id}`} style={{ textDecoration: 'none', color: 'blue' }}><h4>{car.name}</h4></Link>
                             </div>
                         ))}
                 <br />

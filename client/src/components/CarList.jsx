@@ -62,7 +62,7 @@ export default class CarList extends Component {
                         <Card style={{ backgroundColor: "rgba(242, 244, 247, .7)" }}>
                             <CardBody>
                                 <Link
-                                    to={`/car/${car.id}/`}
+                                    to={`/cars/${car.id}/`}
                                     style={{ textDecoration: 'none', color: 'blue' }}><h2>{car.name}</h2></Link>
                                 <h3>Votes: {car.votes}</h3>
                             </CardBody>

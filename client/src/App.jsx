@@ -32,11 +32,12 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/builders' component={BuilderList} />
-            <Route path='/cars/' component={CarList} />
-            <Route path='/builder/:id' component={Builder} />
-            <Route path='/car/:id' component={Car} />
-            <Route path='/project/:id' component={Project} />
-            <Route path='/vinlookup/' component={VinLookup} />
+            <Route exact path='/cars/' component={CarList} />
+            <Route exact path='/builders/:id' component={Builder} />
+            <Route exact path='/cars/:id' component={Car} />
+            <Route exact path='/projects/:id' component={Project} />
+            <Route exact path='/projects/' component={CarList} />
+            <Route exact path='/vinlookup/' component={VinLookup} />
           </Switch>
         </Body>
       </Router>

@@ -45,7 +45,7 @@ export default class extends Component {
                     <div key={builder.id}>
                         <Card style={{ backgroundColor: "rgba(242, 244, 247, .75)" }}>
                             <CardBody>
-                                <Link to={`/builder/${builder.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h2>{builder.name}</h2></Link>
+                                <Link to={`/builders/${builder.id}/`} style={{ textDecoration: 'none', color: 'blue' }}><h2>{builder.name}</h2></Link>
                                 <h3>Cars: {builder.cars.length}</h3>
                             </CardBody>
                         </Card>
