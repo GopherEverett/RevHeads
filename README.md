@@ -43,4 +43,6 @@ Users can submit their car's VIN and see it's value and manufacturing data.
 <img src="https://github.com/GopherEverett/RevHeads/blob/master/readme_deliverables/RevHeadsERD.png?raw=true">
 
 ### Future Development
--
+- Authentication and Authorization
+- Restyle using a more flexible CSS library 
+- Allow users to upload images rather than URLs

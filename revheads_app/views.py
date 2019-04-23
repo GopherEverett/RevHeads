@@ -18,5 +18,3 @@ class ProjectView(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
-
-# Create your views here.

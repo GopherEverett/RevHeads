@@ -21,7 +21,7 @@ export default class VinLookup extends Component {
     handleChange(evt) {
         this.setState({ value: evt.target.value });
     }
-
+// This makes call to API returning value and reported mileage
     handleSubmit(evt) {
         evt.preventDefault()
         axios.get(`https://marketvalue.vinaudit.com/getmarketvalue.php?key=${VINAUDIT_KEY}&vin=${this.state.value}&format=json/`)
@@ -33,7 +33,7 @@ export default class VinLookup extends Component {
                 this.handleSubmitData()
             })
     }
-
+// This second call to different API fro VIN decoding
     handleSubmitData() {
         axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValuesExtended/${this.state.value}?format=json`)
             .then(res => {

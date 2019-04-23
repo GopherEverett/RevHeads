@@ -101,7 +101,6 @@ export default class Car extends Component {
                             </div>
                         ))}
                         <br />
-                        <br />
                         <div>
                             {this.state.isAddFormDisp ?
                                 <AddProjectForm toggleAddForm={this.toggleAddForm} carId={this.state.car.id} fetch={this.fetchCar} /> :
