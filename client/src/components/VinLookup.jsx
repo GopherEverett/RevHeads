@@ -44,7 +44,7 @@ export default class VinLookup extends Component {
                     if (obj[prop]) { newObj[prop] = obj[prop]; }
                 });
                 let newArr = Object.entries(newObj)
-                console.log(newArr)
+                // console.log(newArr)
                 this.setState({
                     moreStuff: newArr
                 })
