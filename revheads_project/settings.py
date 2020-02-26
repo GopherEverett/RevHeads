@@ -28,9 +28,9 @@ STATICFILES_DIRS = [
 SECRET_KEY = '^h^@yrii&bv&9e_3ktn+g%=6ow6rpq2@_rwi0qn%j7bot$w6yb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,8 +80,19 @@ WSGI_APPLICATION = 'revheads_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    }
+else:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sample_database',
@@ -130,8 +141,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-import django_heroku
-django_heroku.settings(locals())
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (

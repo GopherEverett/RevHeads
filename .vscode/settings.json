@@ -1,3 +1,35 @@
 {
-    "python.pythonPath": "/Users/johnjacobs/.pyenv/versions/3.7.0/bin/python"
+    "python.pythonPath": "/Users/johnjacobs/.pyenv/versions/3.7.0/bin/python",
+    "sqltools.connections": [
+        {
+            "connectionTimeout": 30,
+            "database": "revheads_database",
+            "dialect": "PostgreSQL",
+            "name": "revheads",
+            "password": "jglass0729",
+            "port": 5432,
+            "server": "127.0.0.1",
+            "username": "johnjacobs"
+        },
+        {
+            "connectionTimeout": 30,
+            "database": "revheads_database",
+            "dialect": "PostgreSQL",
+            "name": "revheads",
+            "password": "jglass0729",
+            "port": 5432,
+            "server": "127.0.0.1",
+            "username": "johnjacobs"
+        },
+        {
+            "connectionTimeout": 30,
+            "database": "sample_database",
+            "dialect": "PostgreSQL",
+            "name": "revheads sample",
+            "password": "jglass0729",
+            "port": 5432,
+            "server": "127.0.0.1",
+            "username": "johnjacobs"
+        }
+    ]
 }

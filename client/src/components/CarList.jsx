@@ -16,8 +16,7 @@ export default class CarList extends Component {
         let holder = []
         let copyCars = [...this.state.firstCars]
         copyCars.map((oneCar) => {
-            holder.push(oneCar.votes)
-
+           return holder.push(oneCar.votes)
         })
         holder.sort(function (a, b) { return b - a })
         let setToGoback = [];
