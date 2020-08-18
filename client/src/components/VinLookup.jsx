@@ -24,7 +24,7 @@ export default class VinLookup extends Component {
 // This makes call to API returning value and reported mileage
     handleSubmit(evt) {
         evt.preventDefault()
-        axios.get(`http://api.carsxe.com/history?key=${VINAUDIT_KEY}&vin=${this.state.value}&format=json/`)
+        axios.get(`https://api.carsxe.com/history?key=${VINAUDIT_KEY}&vin=${this.state.value}&format=json/`)
 
             .then(res => {
                 this.setState({
@@ -45,7 +45,7 @@ export default class VinLookup extends Component {
                     if (obj[prop]) { newObj[prop] = obj[prop]; }
                 });
                 let newArr = Object.entries(newObj)
-                // console.log(newArr)
+                console.log(newArr)
                 this.setState({
                     moreStuff: newArr
                 })
